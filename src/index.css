@@ -122,6 +122,9 @@
     @apply bg-background text-foreground;
   }
   #root {
-    min-height: 100vh;
+    height: 100dvh;
+  }
+  [data-slot='sidebar-wrapper'] {
+    height: 100%;
   }
 }
