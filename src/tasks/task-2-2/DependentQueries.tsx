@@ -11,6 +11,9 @@ import {
   useUserOrders,
 } from './useUserOrders'
 
+const ORDER_SKELETON_ROWS = Array.from({ length: 4 }, (_, i) => i)
+const DETAIL_SKELETON_ROWS = Array.from({ length: 3 }, (_, i) => i)
+
 function UserSkeleton() {
   return (
     <div className="animate-pulse rounded-lg border p-4">
@@ -28,7 +31,7 @@ function UserSkeleton() {
 function OrderListSkeleton() {
   return (
     <div className="space-y-3">
-      {Array.from({ length: 4 }, (_, i) => (
+      {ORDER_SKELETON_ROWS.map((i) => (
         <div key={i} className="animate-pulse rounded-lg border p-3">
           <div className="flex items-center justify-between">
             <div className="bg-muted h-4 w-24 rounded" />
@@ -52,7 +55,7 @@ function OrderDetailsSkeleton() {
         <div className="bg-muted h-4 w-24 rounded" />
       </div>
       <div className="space-y-3">
-        {Array.from({ length: 3 }, (_, i) => (
+        {DETAIL_SKELETON_ROWS.map((i) => (
           <div key={i} className="flex items-center justify-between">
             <div className="bg-muted h-4 w-40 rounded" />
             <div className="bg-muted h-4 w-16 rounded" />
