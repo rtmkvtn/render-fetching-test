@@ -119,7 +119,7 @@ export const ORDER_DETAILS: Map<number, OrderDetail> = new Map(
   })
 )
 
-export const BRANDS: Brand[] = Array.from({ length: 10 }, (_, i) => ({
+export const BRANDS: Brand[] = Array.from({ length: 30 }, (_, i) => ({
   id: i + 1,
   name: faker.company.name(),
 }))
@@ -128,7 +128,7 @@ export const PRODUCTS_DATA: Product[] = Array.from({ length: 100 }, (_, i) => ({
   id: i + 1,
   name: faker.commerce.productName(),
   price: parseFloat(faker.commerce.price({ min: 10, max: 200 })),
-  brandId: BRANDS[i % 10].id,
+  brandId: faker.helpers.arrayElement(BRANDS).id,
   image: `https://picsum.photos/seed/product-${i + 1}/200/200`,
 }))
 
