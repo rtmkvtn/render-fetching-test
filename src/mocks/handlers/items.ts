@@ -18,7 +18,7 @@ export const itemsHandlers = [
 
     return HttpResponse.json({
       items,
-      nextPage: hasMore ? page + 1 : null,
+      hasMore,
       total: ITEMS_DATA.length,
     })
   }),
