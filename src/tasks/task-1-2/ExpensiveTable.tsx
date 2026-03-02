@@ -7,6 +7,7 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table'
+import { useDebounce } from '@/hooks/use-debounce'
 
 import { salesReps } from './data'
 import { FilterBar } from './FilterBar'
@@ -14,9 +15,10 @@ import { SalesRow } from './SalesRow'
 
 export function ExpensiveTable() {
   const [nameFilter, setNameFilter] = useState('')
+  const debouncedFilter = useDebounce(nameFilter, 300)
 
   const filteredReps = salesReps.filter((rep) => {
-    return rep.name.toLowerCase().includes(nameFilter.toLowerCase())
+    return rep.name.toLowerCase().includes(debouncedFilter.toLowerCase())
   })
 
   return (
