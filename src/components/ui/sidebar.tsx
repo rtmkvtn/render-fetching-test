@@ -166,7 +166,7 @@ function Sidebar({
   collapsible?: 'offcanvas' | 'icon' | 'none'
 }) {
   const { isMobile, state, openMobile, setOpenMobile } = useSidebar()
-  console.log('render')
+
   if (collapsible === 'none') {
     return (
       <div
